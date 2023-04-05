@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}Page 2: Devin Hester{% endblock %}
+
+{% block content %}
+  <h1>Page 2: What position does Devin Hester play?</h1>
+
+ <form action={{ url_for("renderPage3") }} method="POST">
+  Position:<br>
+ <input type="radio" name="position2" id="KR" value="1">
+  <label for "KR">Kick Returner(KR)
+  <br>
+  <input type="radio" name="position2" id="WR" value="2">
+  <label for "WR">Wide Reciver(WR)
+  <br>
+  <input type="radio" name="position2" id="S" value="3">
+  <label for "S">Saftey(S)
+  <br>
+  <br>
+  <input type="submit" value="Submit">
+ </form> 
+
+
+{% endblock %}
