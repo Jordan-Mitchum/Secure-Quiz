@@ -5,7 +5,7 @@
 {% block content %}
   <h1>Page 4: What position does Troy Polamalu play?</h1>
 
- <form action={{ url_for("renderPageEnd") }} method="POST">
+ <form action={{ url_for("renderPage5") }} method="POST">
   Position:<br>
  <input type="radio" name="position4" id="KR" value="1">
   <label for "KR"> 1. Outside Linebacker(OLB)
@@ -13,8 +13,12 @@
   <input type="radio" name="position4" id="WR" value="2">
   <label for "WR"> 2. Strong Saftey(SS)
   <br>
-  <input type="radio" name="position4" id="S" value="3">
-  <label for "S"> 3. Free Saftey(FS)
+  <input type="radio" name="position4" id="FS" value="3">
+  <label for "FS"> 3. Free Saftey(FS)
+  <br>
+  <input type="radio" name="position4" id="RB" value="4">
+  <label for "RB">4. Running Back (RB)
+  <br>
   <br>
   <br>
   <input type="submit" value="Submit">

@@ -34,28 +34,35 @@ def renderPage3():
 def renderPage4():
     session["position3"]=request.form['position3']
     return render_template('page4.html')
-
+    
+@app.route('/page5', methods=['GET','POST'])
+def renderPage5():
+    session["position4"]=request.form['position4']
+    return render_template('page5.html')
+    
 @app.route('/pageEnd', methods=['GET','POST'])
 def renderPageEnd():
-    session["position4"]=request.form['position4']
-    yn= {'yes': 'Passed', 'no': 'Failed'}
+    session["position5"]=request.form['position5']
+    
     total = 0
    
-    if session["position1"] == 1:
+    if session["position1"] == "1":
         total = total + 1
-    if session["position2"] == 1:
+    if session["position2"] == "1":
         total = total + 1
-    if session["position3"] == 2:
+    if session["position3"] == "2":
         total = total + 1
-    if session["position4"] == 3:
+    if session["position4"] == "3":
         total = total + 1
+    if session["position5"] == "4":
+        total = total + 1 
         
-    if total < 2:
-        yn= yn[1]
+    if total < 3:
+        yn = "Failed"
     else:
-        yn = yn[0]
+        yn = "Passed"
         
-    return render_template('pageEnd.html', total = total)
+    return render_template('pageEnd.html', total = total, YN = yn)
     
 
 if __name__=="__main__":

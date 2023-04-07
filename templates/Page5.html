@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}Page 5: Sean Poindexter{% endblock %}
+
+{% block content %}
+  <h1>Page 5: What position does Sean Poindexter play?</h1>
+
+ <form action={{ url_for("renderPageEnd") }} method="POST">
+  Position:<br>
+ <input type="radio" name="position5" id="KR" value="1">
+  <label for "KR"> 1. Quarterback (QB)
+  <br>
+  <input type="radio" name="position5" id="WR" value="2">
+  <label for "WR"> 2. Corner back (CB)
+  <br>
+  <input type="radio" name="position5" id="FS" value="3">
+  <label for "S"> 3. Free Saftey(FS)
+  <br>
+  <input type="radio" name="position5" id="RB" value="4">
+  <label for "RB">4. Wide Reciver(WR)
+  <br>
+  <br>
+  <br>
+  <input type="submit" value="Submit">
+ </form> 
+<br>
+<img src="/static/Shawn-P.jpeg" alt="Troy Polamalu">
+
+{% endblock %}
