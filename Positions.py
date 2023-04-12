@@ -11,7 +11,7 @@ app.secret_key=os.environ["SECRET_KEY"];
 def renderHome():
     return render_template('home.html')
 
-@app.route('/startOver')
+@app.route('/startOver', methods=['GET','POST'])
 def startOver():
     session.clear()
     return redirect(url_for('renderHome'))
@@ -22,27 +22,47 @@ def renderPage1():
 
 @app.route('/page2', methods=['GET','POST'])
 def renderPage2():
-    session["position1"]=request.form['position1']
-    return render_template('page2.html')
+    if 'position1' in session: 
+        session.clear()
+        return render_template('home.html')
+    else:
+        session["position1"]=request.form['position1']
+        return render_template('page2.html')
  
 @app.route('/page3', methods=['GET','POST'])
 def renderPage3():
-    session["position2"]=request.form['position2']
-    return render_template('page3.html')
+    if 'position2' in session:
+        session.clear()
+        return render_template('home.html')
+    else:
+        session["position2"]=request.form['position2']
+        return render_template('page3.html')
     
 @app.route('/page4', methods=['GET','POST'])
 def renderPage4():
-    session["position3"]=request.form['position3']
-    return render_template('page4.html')
+    if 'position3' in session:
+        session.clear()
+        return render_template('home.html')
+    else:
+        session["position3"]=request.form['position3']
+        return render_template('page4.html')
     
 @app.route('/page5', methods=['GET','POST'])
 def renderPage5():
-    session["position4"]=request.form['position4']
-    return render_template('page5.html')
+    if 'position4' in session:
+        session.clear()
+        return render_template('home.html')
+    else:
+        session["position4"]=request.form['position4']
+        return render_template('page5.html')
     
 @app.route('/pageEnd', methods=['GET','POST'])
 def renderPageEnd():
-    session["position5"]=request.form['position5']
+    if 'position5' in session:
+        session.clear()
+        return render_template('home.html')
+    else:
+        session["position5"]=request.form['position5']
     
     total = 0
    
@@ -64,6 +84,10 @@ def renderPageEnd():
         
     return render_template('pageEnd.html', total = total, YN = yn)
     
+
+
+
+
 
 if __name__=="__main__":
     app.run(debug=True)
