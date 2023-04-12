@@ -11,8 +11,9 @@ var interval = setInterval(function() {
     if (minutes < 0) {
         clearInterval(interval);
         fetch("/startOver", {
-            method: "POST"
+            method: "POST" 
         })
+        location.reload();
     } else {
         $('.countdown').html(minutes + ':' + seconds);
         timer1 = minutes + ':' + seconds;
